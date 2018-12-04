@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  db:
+    container_name: olive-db
+    image: postgres:10.5
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - olivedb:/var/lib/postgresql/data
+
+  nginx:
+    container_name: olive-nginx
+    image: nginx:latest
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - '80:80'
+    links:
+      - api
+
+  api:
+    container_name: olive-api
+    build: .
+    command: python manage.py runserver 0.0.0.0:8008
+    volumes:
+    - .:/code
+    ports:
+    - '8008:8008'
+    depends_on:
+    - db
+
+volumes:
+  olivedb:
