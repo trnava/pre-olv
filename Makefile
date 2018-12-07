@@ -2,12 +2,6 @@ start:
 	COMPOSE_HTTP_TIMEOUT=200 docker-compose up
 
 
-pre-migrate:
-	docker-compose run --rm api python manage.py makemigrations api\
-	&& docker-compose run --rm api python manage.py migrate \
-	&& docker container stop nu-db
-
-
 migrate:
 	docker-compose run --rm api python manage.py makemigrations\
 	&& docker-compose run --rm api python manage.py migrate \

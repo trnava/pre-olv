@@ -1,0 +1,107 @@
+[
+    {
+        "model": "api.user",
+        "pk": 0,
+        "fields": {
+            "password": "pbkdf2_sha256$100000$G8Khv6sC1pSn$oVV6Ktk5k3vcxtrzxm/THh9cTjeCjyYxVyW2BZ+cBVM=",
+            "last_login": null,
+            "is_superuser": true,
+            "email": "noon@gmail.com",
+            "is_staff": true,
+            "is_active": true,
+            "type": 0,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "api.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$100000$Cs3Cj61Ex7g0$lc00dxUfzr99rUhI0RXT5vaoDa9FFs9AZVt3unjYRqY=",
+            "email": "aaa@gmail.com"
+        }
+    },
+    {
+        "model": "api.buyerDetail",
+        "pk": 1,
+        "fields": {
+            "user_id": 1,
+            "ready_to_buy": true,
+            "name": "patron1",
+            "address": "東京都杉並区どこそこ１−２ー３",
+            "phone_number": "08012345678",
+            "credit_number": "1111222233334444",
+            "credit_name": "YAMADA YAMADA"
+        }
+    },
+
+    {
+        "model": "api.user",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$100000$Cs3Cj61Ex7g0$lc00dxUfzr99rUhI0RXT5vaoDa9FFs9AZVt3unjYRqY=",
+            "email": "bbb@gmail.com"
+        }
+    },
+    {
+        "model": "api.buyerDetail",
+        "pk": 2,
+        "fields": {
+            "user_id": 2,
+            "ready_to_buy": true,
+            "name": "patron2",
+            "address": "東京都杉並区どこそこ１−２ー３",
+            "phone_number": "08012345678",
+            "credit_number": "1111222233334444",
+            "credit_name": "YAMADA YAMADA"
+        }
+    },
+
+    {
+        "model": "api.user",
+        "pk": 3,
+        "fields": {
+            "password": "pbkdf2_sha256$100000$Cs3Cj61Ex7g0$lc00dxUfzr99rUhI0RXT5vaoDa9FFs9AZVt3unjYRqY=",
+            "email": "ccc@gmail.com"
+        }
+    },
+    {
+        "model": "api.buyerDetail",
+        "pk": 3,
+        "fields": {
+            "user_id": 3,
+            "ready_to_buy": true,
+            "name": "patron3",
+            "address": "東京都杉並区どこそこ１−２ー３",
+            "phone_number": "08012345678",
+            "credit_number": "1111222233334444",
+            "credit_name": "YAMADA YAMADA"
+        }
+    },
+
+    {
+        "model": "api.user",
+        "pk": 4,
+        "fields": {
+            "password": "pbkdf2_sha256$100000$Cs3Cj61Ex7g0$lc00dxUfzr99rUhI0RXT5vaoDa9FFs9AZVt3unjYRqY=",
+            "email": "ddd@gmail.com"
+        }
+    },
+    {
+        "model": "api.user",
+        "pk": 5,
+        "fields": {
+            "password": "pbkdf2_sha256$100000$Cs3Cj61Ex7g0$lc00dxUfzr99rUhI0RXT5vaoDa9FFs9AZVt3unjYRqY=",
+            "email": "eee@gmail.com"
+        }
+    },
+    {
+        "model": "api.user",
+        "pk": 6,
+        "fields": {
+            "password": "pbkdf2_sha256$100000$Cs3Cj61Ex7g0$lc00dxUfzr99rUhI0RXT5vaoDa9FFs9AZVt3unjYRqY=",
+            "email": "fff@gmail.com"
+        }
+    }
+]
