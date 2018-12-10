@@ -9,6 +9,7 @@ class Genre(models.Model):
 
 
 class SubGenre(models.Model):
+    genre = models.ForeignKey(Genre, null=True, on_delete=models.PROTECT)
     name = models.CharField(max_length=20, null=False, blank=False, unique=True)
 
     def __str__(self):

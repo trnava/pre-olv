@@ -2,13 +2,13 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 
 from api.models import (User)
-from api.serializers import (UserSerializer)
+from api.serializers import (UserSerializer, UserDetailSerializer)
 
 
 class UserViewSet(viewsets.ModelViewSet):
     """ ユーザー """
     queryset = User.objects.all()
-    serializer_class = UserSerializer
+    serializer_class = UserDetailSerializer
     # permission_classes = (AllowAny,)
 
     def create(self, request, *args, **kwargs):

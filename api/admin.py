@@ -20,6 +20,8 @@ admin.site.register(Sex)
 admin.site.register(Work)
 admin.site.register(Image)
 admin.site.register(Message)
+admin.site.register(ArtistDetail)
+admin.site.register(BuyerDetail)
 
 
 class MyUserChangeForm(UserChangeForm):

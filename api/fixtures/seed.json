@@ -19,7 +19,8 @@
         "pk": 1,
         "fields": {
             "password": "pbkdf2_sha256$100000$Cs3Cj61Ex7g0$lc00dxUfzr99rUhI0RXT5vaoDa9FFs9AZVt3unjYRqY=",
-            "email": "aaa@gmail.com"
+            "email": "aaa@gmail.com",
+            "type": 1
         }
     },
     {
@@ -41,7 +42,8 @@
         "pk": 2,
         "fields": {
             "password": "pbkdf2_sha256$100000$Cs3Cj61Ex7g0$lc00dxUfzr99rUhI0RXT5vaoDa9FFs9AZVt3unjYRqY=",
-            "email": "bbb@gmail.com"
+            "email": "bbb@gmail.com",
+            "type": 1
         }
     },
     {
@@ -49,12 +51,12 @@
         "pk": 2,
         "fields": {
             "user_id": 2,
-            "ready_to_buy": true,
+            "ready_to_buy": false,
             "name": "patron2",
-            "address": "東京都杉並区どこそこ１−２ー３",
+            "address": "",
             "phone_number": "08012345678",
             "credit_number": "1111222233334444",
-            "credit_name": "YAMADA YAMADA"
+            "credit_name": ""
         }
     },
 
@@ -63,7 +65,8 @@
         "pk": 3,
         "fields": {
             "password": "pbkdf2_sha256$100000$Cs3Cj61Ex7g0$lc00dxUfzr99rUhI0RXT5vaoDa9FFs9AZVt3unjYRqY=",
-            "email": "ccc@gmail.com"
+            "email": "ccc@gmail.com",
+            "type": 1
         }
     },
     {
@@ -89,6 +92,30 @@
         }
     },
     {
+        "model": "api.artistDetail",
+        "pk": 1,
+        "fields": {
+            "user_id": 4,
+            "debuted": true,
+            "ready_to_sell": true,
+            "approved": 0,
+            "ticket": 0,
+            "artist_name": "ddd",
+            "website": "sample.com",
+            "birthday": "1990-12-07",
+            "sex": 1,
+            "place": "東京",
+            "genre": 2,
+            "profile": "アーティストです。",
+            "icon": "",
+            "account": "新生銀行",
+            "account_branch": "400",
+            "account_name": "ヤマダタロウ",
+            "account_number": "898411"
+        }
+    },
+
+    {
         "model": "api.user",
         "pk": 5,
         "fields": {
@@ -103,5 +130,160 @@
             "password": "pbkdf2_sha256$100000$Cs3Cj61Ex7g0$lc00dxUfzr99rUhI0RXT5vaoDa9FFs9AZVt3unjYRqY=",
             "email": "fff@gmail.com"
         }
+    },
+
+
+    {
+        "model": "api.genre",
+        "pk": 0,
+        "fields": {
+            "name": "絵画"
+        }
+    },
+    {
+        "model": "api.subgenre",
+        "pk": 0,
+        "fields": {
+            "genre": 0,
+            "name": "油絵"
+        }
+    },
+    {
+        "model": "api.subgenre",
+        "pk": 1,
+        "fields": {
+            "genre": 0,
+            "name": "水彩画"
+        }
+    },
+    {
+        "model": "api.subgenre",
+        "pk": 2,
+        "fields": {
+            "genre": 0,
+            "name": "印象派"
+        }
+    },
+    {
+        "model": "api.subgenre",
+        "pk": 3,
+        "fields": {
+            "genre": 0,
+            "name": "抽象"
+        }
+    },
+
+
+    {
+        "model": "api.genre",
+        "pk": 1,
+        "fields": {
+            "name": "写真"
+        }
+    },
+    {
+        "model": "api.subgenre",
+        "pk": 4,
+        "fields": {
+            "genre": 1,
+            "name": "ストリート"
+        }
+    },
+    {
+        "model": "api.subgenre",
+        "pk": 5,
+        "fields": {
+            "genre": 0,
+            "name": "風景"
+        }
+    },
+    {
+        "model": "api.subgenre",
+        "pk": 6,
+        "fields": {
+            "genre": 0,
+            "name": "ポートレート"
+        }
+    },
+
+    {
+        "model": "api.genre",
+        "pk": 2,
+        "fields": {
+            "name": "その他"
+        }
+    },
+
+
+    {
+        "model": "api.color",
+        "pk": 0,
+        "fields": {
+            "name": "白",
+            "color_code": "ffffff"
+        }
+    },
+    {
+        "model": "api.color",
+        "pk": 1,
+        "fields": {
+            "name": "黒",
+            "color_code": "000000"
+        }
+    },
+    {
+        "model": "api.color",
+        "pk": 2,
+        "fields": {
+            "name": "灰色",
+            "color_code": "f5f5f5"
+        }
+    },
+
+    {
+        "model": "api.size",
+        "pk": 0,
+        "fields": {
+            "size": "大きい"
+        }
+    },
+    {
+        "model": "api.size",
+        "pk": 1,
+        "fields": {
+            "size": "卓上"
+        }
+    },
+    {
+        "model": "api.size",
+        "pk": 2,
+        "fields": {
+            "size": "手のひら"
+        }
+    },
+
+    {
+        "model": "api.sex",
+        "pk": 0,
+        "fields": {
+            "sex": "男"
+        }
+    },
+    {
+        "model": "api.sex",
+        "pk": 1,
+        "fields": {
+            "sex": "女"
+        }
+    },
+    {
+        "model": "api.sex",
+        "pk": 1,
+        "fields": {
+            "sex": "その他"
+        }
     }
+
+
+
 ]
