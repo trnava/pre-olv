@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
+from api.views.custom_auth_token import CustomAuthToken
+
 from api.views import (
     UserViewSet,
     GenreViewSet,
@@ -28,8 +30,11 @@ router.register(r'message', MessageViewSet, base_name='message')
 urlpatterns = [
     path('', include('api.urls')),
     path('admin/', admin.site.urls),
-
     path('api-auth/', include('rest_framework.urls')),
 
-    path('api/', include(router.urls))
+    # Api
+    path('api/', include(router.urls)),
+
+    # login api
+    path('api-token-auth/', CustomAuthToken.as_view()),
 ]
