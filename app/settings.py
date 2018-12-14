@@ -45,7 +45,10 @@ INSTALLED_APPS = [
     'rest_framework',
 
     # add for login function
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+
+    # to set CORS
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -56,6 +59,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # to set CORS
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware'
 ]
 
 ROOT_URLCONF = 'app.urls'
@@ -132,3 +139,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# CORS setting
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = (
+    'localhost:8001',
+)
+CORS_ORIGIN_REGEX_WHITELIST = (
+    'localhost:8001',
+)

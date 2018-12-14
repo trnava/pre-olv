@@ -13,3 +13,5 @@ pygraphviz
 django-extensions
 
 coreapi
+
+django-cors-headers
