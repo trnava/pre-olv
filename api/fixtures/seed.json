@@ -278,9 +278,25 @@
     },
     {
         "model": "api.sex",
-        "pk": 1,
+        "pk": 2,
         "fields": {
             "sex": "その他"
+        }
+    },
+
+
+    {
+        "model": "api.work",
+        "pk": 1,
+        "fields": {
+            "name": "Work1",
+            "caption": "test work 1. this is test work 1",
+            "price": 20000,
+            "size": 1,
+            "color": 2,
+            "genre": 0,
+            "subgenre": 3,
+            "artist": 4
         }
     }
 
