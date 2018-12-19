@@ -1,8 +1,9 @@
+from django.shortcuts import get_object_or_404
 from rest_framework import viewsets
 from rest_framework.response import Response
 
-from api.models import (User)
-from api.serializers import (UserSerializer, UserDetailSerializer)
+from api.models import (User, ArtistDetail)
+from api.serializers import (UserSerializer, UserDetailSerializer, ArtistInfoSerializer)
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -26,3 +27,14 @@ class UserViewSet(viewsets.ModelViewSet):
 
     def destroy(self, req, *args, **kwargs):
         pass
+
+
+class ArtistViewSet(viewsets.ModelViewSet):
+    """ アーティスト """
+    queryset = ArtistDetail.objects.all()
+    serializer_class = ArtistInfoSerializer
+
+    def retrieve(self, request, pk=None):
+        artist = get_object_or_404(ArtistDetail.objects.all(), user_id=pk)
+
+        return Response(ArtistInfoSerializer(artist).data)

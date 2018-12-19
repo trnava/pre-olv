@@ -6,6 +6,7 @@ from api.views.custom_auth_token import CustomAuthToken
 
 from api.views import (
     UserViewSet,
+    ArtistViewSet,
     GenreViewSet,
     SubGenreViewSet,
     ColorViewSet,
@@ -18,6 +19,7 @@ from api.views import (
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet, base_name='user')
+router.register(r'artist', ArtistViewSet, base_name='artist')
 router.register(r'genre', GenreViewSet, base_name='genre')
 router.register(r'sub_genre', SubGenreViewSet, base_name='sub_genre')
 router.register(r'color', ColorViewSet, base_name='color')

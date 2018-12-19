@@ -22,6 +22,25 @@ class ArtistSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class ArtistInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ArtistDetail
+        fields = (
+            'debuted',
+            'approved',
+            'ticket',
+            'artist_name',
+            'website',
+            'birthday',
+            'place',
+            'profile',
+            'icon',
+            'user_id',
+            'sex',
+            'genre'
+        )
+
+
 class UserDetailSerializer(serializers.ModelSerializer):
     artist = SerializerMethodField()
     buyer = SerializerMethodField()
