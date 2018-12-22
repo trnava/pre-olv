@@ -19,15 +19,15 @@ from api.views import (
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet, base_name='user')
-router.register(r'artist', ArtistViewSet, base_name='artist')
-router.register(r'genre', GenreViewSet, base_name='genre')
-router.register(r'sub_genre', SubGenreViewSet, base_name='sub_genre')
-router.register(r'color', ColorViewSet, base_name='color')
-router.register(r'size', SizeViewSet, base_name='size')
-router.register(r'sex', SexViewSet, base_name='sex')
-router.register(r'work', WorkViewSet, base_name='work')
-router.register(r'image', ImageViewSet, base_name='image')
-router.register(r'message', MessageViewSet, base_name='message')
+router.register(r'artists', ArtistViewSet, base_name='artist')
+router.register(r'genres', GenreViewSet, base_name='genre')
+router.register(r'sub_genres', SubGenreViewSet, base_name='sub_genre')
+router.register(r'colors', ColorViewSet, base_name='color')
+router.register(r'sizes', SizeViewSet, base_name='size')
+router.register(r'sexs', SexViewSet, base_name='sex')
+router.register(r'works', WorkViewSet, base_name='work')
+router.register(r'images', ImageViewSet, base_name='image')
+router.register(r'messages', MessageViewSet, base_name='message')
 
 urlpatterns = [
     path('', include('api.urls')),
