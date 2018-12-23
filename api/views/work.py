@@ -1,4 +1,6 @@
+from django.shortcuts import get_object_or_404
 from rest_framework import viewsets
+from rest_framework.response import Response
 
 from api.models.work import Work
 from api.serializers.work import WorkSerializer
@@ -15,3 +17,11 @@ class WorkViewSet(viewsets.ModelViewSet):
             return works
 
         return Work.objects.all()
+
+    def retrieve(self, request, pk=None):
+        work = get_object_or_404(Work.objects.all(), pk=pk)
+
+        work.view = work.view + 1
+        work.save()
+
+        return Response(WorkSerializer(work).data)
