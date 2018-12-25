@@ -1,7 +1,9 @@
 from django.shortcuts import get_object_or_404
 from rest_framework import viewsets
 from rest_framework.response import Response
+from rest_framework.authentication import TokenAuthentication
 
+from api.models.user import User
 from api.models.work import Work
 from api.serializers.work import WorkSerializer
 
@@ -9,6 +11,7 @@ from api.serializers.work import WorkSerializer
 class WorkViewSet(viewsets.ModelViewSet):
     # queryset = Work.objects.all()
     serializer_class = WorkSerializer
+    authentication_classes = (TokenAuthentication,)
 
     def get_queryset(self):
         artist_id = self.request.query_params.get('artist')
@@ -25,3 +28,21 @@ class WorkViewSet(viewsets.ModelViewSet):
         work.save()
 
         return Response(WorkSerializer(work).data)
+
+    def partial_update(self, request, pk=None):
+        work = self.get_object()
+
+        buyer_id = request.data.get('buyer', work.buyer)
+
+        work.buyer = User.objects.filter(pk=buyer_id).first()
+        work.price = request.data.get('price', work.price)
+
+        work.save()
+
+        return Response(WorkSerializer(work).data)
+
+        # serialized = WorkSerializer(request.user, data=request.data, partial=True)
+        # serialized.is_valid(raise_exception=True)
+        # serialized.save()
+        # return Response(serialized.data)
+

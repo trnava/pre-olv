@@ -48,7 +48,10 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
 
     # to set CORS
-    'corsheaders'
+    'corsheaders',
+
+    'django_filters',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -149,3 +152,9 @@ CORS_ORIGIN_WHITELIST = (
 CORS_ORIGIN_REGEX_WHITELIST = (
     'localhost:8001',
 )
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_PERMISSION_CLASSES': (
+#        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+#     )
+# }

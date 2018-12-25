@@ -23,3 +23,6 @@ class Work(models.Model):
     created_at = models.DateTimeField(default=now)
     updated_at = models.DateTimeField(default=now)
     deleted_at = models.DateTimeField(null=True, blank=True, default=None)
+
+    def __str__(self):
+        return self.name

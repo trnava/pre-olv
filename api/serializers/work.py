@@ -56,7 +56,7 @@ class WorkSerializer(serializers.ModelSerializer):
         if obj.buyer is None:
             return None
 
-        return BuyerSerializer(BuyerDetail.objects.filter(user_id=obj.buyer)).data
+        return BuyerSerializer(BuyerDetail.objects.get(user_id=obj.buyer)).data
 
     def get_artist(self, obj):
         return ArtistSerializer(ArtistDetail.objects.get(user_id=obj.artist)).data
