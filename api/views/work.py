@@ -33,16 +33,10 @@ class WorkViewSet(viewsets.ModelViewSet):
         work = self.get_object()
 
         buyer_id = request.data.get('buyer', work.buyer)
-
         work.buyer = User.objects.filter(pk=buyer_id).first()
-        work.price = request.data.get('price', work.price)
+        work.sold = request.data.get('sold', work.sold)
 
         work.save()
 
         return Response(WorkSerializer(work).data)
-
-        # serialized = WorkSerializer(request.user, data=request.data, partial=True)
-        # serialized.is_valid(raise_exception=True)
-        # serialized.save()
-        # return Response(serialized.data)
 

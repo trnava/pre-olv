@@ -54,7 +54,7 @@ class WorkSerializer(serializers.ModelSerializer):
 
     def get_buyer(self, obj):
         if obj.buyer is None:
-            return None
+            return {}
 
         return BuyerSerializer(BuyerDetail.objects.get(user_id=obj.buyer)).data
 
