@@ -298,8 +298,17 @@
             "subgenre": 3,
             "artist": 4
         }
+    },
+
+    {
+        "model": "api.message",
+        "pk": 1,
+        "fields": {
+            "work": 1,
+            "sender": 1,
+            "receiver": 4,
+            "body": "購入しました。発送お願いします。"
+        }
     }
-
-
 
 ]

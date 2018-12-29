@@ -35,7 +35,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
 
     # Api
-    path('api/', include(router.urls)),
+    path('api/v1/', include(router.urls)),
 
     # login api
     path('api-token-auth/', CustomAuthToken.as_view()),
