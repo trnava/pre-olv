@@ -299,6 +299,20 @@
             "artist": 4
         }
     },
+    {
+        "model": "api.work",
+        "pk": 2,
+        "fields": {
+            "name": "Work2",
+            "caption": "test work 2. this is test work 2",
+            "price": 560000,
+            "size": 0,
+            "color": 1,
+            "genre": 0,
+            "subgenre": 3,
+            "artist": 5
+        }
+    },
 
     {
         "model": "api.message",
