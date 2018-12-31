@@ -114,6 +114,29 @@
             "account_number": "898411"
         }
     },
+    {
+        "model": "api.artistDetail",
+        "pk": 2,
+        "fields": {
+            "user_id": 5,
+            "debuted": true,
+            "ready_to_sell": true,
+            "approved": 0,
+            "ticket": 0,
+            "artist_name": "eee",
+            "website": "sample.com",
+            "birthday": "1990-12-07",
+            "sex": 1,
+            "place": "東京",
+            "genre": 2,
+            "profile": "アーティストです。",
+            "icon": "http://bijo.gen-zo.com/sample/images/binan/light01_after.jpg",
+            "account": "新生銀行",
+            "account_branch": "400",
+            "account_name": "ヤマダタロウ2",
+            "account_number": "898411"
+        }
+    },
 
     {
         "model": "api.user",
