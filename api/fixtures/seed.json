@@ -323,6 +323,26 @@
         }
     },
     {
+        "model": "api.image",
+        "pk": 1,
+        "fields": {
+            "work": 1,
+            "order": 1,
+            "url": "https://www.therovingschool.com.au/wp-content/uploads/2018/10/abstract-art-artistic-935785.jpg"
+        }
+    },
+    {
+        "model": "api.image",
+        "pk": 2,
+        "fields": {
+            "work": 1,
+            "order": 2,
+            "url": "https://www.precisemedical.co.uk/wp-content/uploads/2017/05/grey-square.png"
+        }
+    },
+
+
+    {
         "model": "api.work",
         "pk": 2,
         "fields": {
@@ -336,6 +356,59 @@
             "artist": 5
         }
     },
+    {
+        "model": "api.image",
+        "pk": 3,
+        "fields": {
+            "work": 2,
+            "order": 1,
+            "url": "https://www.telegraph.co.uk/content/dam/luxury/2018/10/23/Lot-33-Papa-Ibra-Tall-The-Warrior-2_trans_NvBQzQNjv4BqodNcBcGl77MFNsXA9PO2XJYCQ1SCH6wXj7qdqY9PoCo.jpg?imwidth=450"
+        }
+    },
+    {
+        "model": "api.image",
+        "pk": 4,
+        "fields": {
+            "work": 2,
+            "order": 2,
+            "url": "https://www.precisemedical.co.uk/wp-content/uploads/2017/05/grey-square.png"
+        }
+    },
+
+
+    {
+        "model": "api.work",
+        "pk": 3,
+        "fields": {
+            "name": "Work3",
+            "caption": "test work 3. this is test work 3",
+            "price": 57000,
+            "size": 2,
+            "color": 0,
+            "genre": 0,
+            "subgenre": 3,
+            "artist": 4
+        }
+    },
+    {
+        "model": "api.image",
+        "pk": 5,
+        "fields": {
+            "work": 3,
+            "order": 1,
+            "url": "https://www.moma.org/d/assets/W1siZiIsIjIwMTUvMTAvMjEvaWJ3dmJmanIyX3N0YXJyeW5pZ2h0LmpwZyJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDIwMDB4MjAwMFx1MDAzZSJdXQ/starrynight.jpg?sha=161d3d1fb5eb4b23"
+        }
+    },
+    {
+        "model": "api.image",
+        "pk": 6,
+        "fields": {
+            "work": 3,
+            "order": 2,
+            "url": "https://www.precisemedical.co.uk/wp-content/uploads/2017/05/grey-square.png"
+        }
+    },
+
 
     {
         "model": "api.message",
