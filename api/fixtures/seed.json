@@ -337,7 +337,25 @@
         "fields": {
             "work": 1,
             "order": 2,
-            "url": "https://www.precisemedical.co.uk/wp-content/uploads/2017/05/grey-square.png"
+            "url": "https://via.placeholder.com/468x300?text=1"
+        }
+    },
+    {
+        "model": "api.image",
+        "pk": 3,
+        "fields": {
+            "work": 1,
+            "order": 3,
+            "url": "https://via.placeholder.com/468x300?text=2"
+        }
+    },
+    {
+        "model": "api.image",
+        "pk": 4,
+        "fields": {
+            "work": 1,
+            "order": 4,
+            "url": "https://via.placeholder.com/468x300?text=3"
         }
     },
 
@@ -358,7 +376,7 @@
     },
     {
         "model": "api.image",
-        "pk": 3,
+        "pk": 11,
         "fields": {
             "work": 2,
             "order": 1,
@@ -367,11 +385,29 @@
     },
     {
         "model": "api.image",
-        "pk": 4,
+        "pk": 12,
         "fields": {
             "work": 2,
             "order": 2,
-            "url": "https://www.precisemedical.co.uk/wp-content/uploads/2017/05/grey-square.png"
+            "url": "https://via.placeholder.com/468x300?text=1"
+        }
+    },
+    {
+        "model": "api.image",
+        "pk": 13,
+        "fields": {
+            "work": 2,
+            "order": 3,
+            "url": "https://via.placeholder.com/468x300?text=2"
+        }
+    },
+    {
+        "model": "api.image",
+        "pk": 14,
+        "fields": {
+            "work": 2,
+            "order": 4,
+            "url": "https://via.placeholder.com/468x300?text=3"
         }
     },
 
@@ -392,7 +428,7 @@
     },
     {
         "model": "api.image",
-        "pk": 5,
+        "pk": 21,
         "fields": {
             "work": 3,
             "order": 1,
@@ -401,11 +437,29 @@
     },
     {
         "model": "api.image",
-        "pk": 6,
+        "pk": 22,
         "fields": {
             "work": 3,
             "order": 2,
-            "url": "https://www.precisemedical.co.uk/wp-content/uploads/2017/05/grey-square.png"
+            "url": "https://via.placeholder.com/468x300?text=1"
+        }
+    },
+    {
+        "model": "api.image",
+        "pk": 23,
+        "fields": {
+            "work": 3,
+            "order": 3,
+            "url": "https://via.placeholder.com/468x300?text=2"
+        }
+    },
+    {
+        "model": "api.image",
+        "pk": 24,
+        "fields": {
+            "work": 3,
+            "order": 4,
+            "url": "https://via.placeholder.com/468x300?text=3"
         }
     },
 

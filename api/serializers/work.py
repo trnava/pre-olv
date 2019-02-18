@@ -51,7 +51,7 @@ class WorkSerializer(serializers.ModelSerializer):
         return ColorSerializer(Color.objects.get(pk=obj.color.pk)).data
 
     def get_images(self, obj):
-        return ImageSerializer(Image.objects.filter(work=obj), many=True).data
+        return ImageSerializer(Image.objects.filter(work=obj).all().order_by('order'), many=True).data
 
     def get_genre(self, obj):
         return GenreSerializer(Genre.objects.get(pk=obj.genre.pk)).data
