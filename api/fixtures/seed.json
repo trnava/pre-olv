@@ -9,31 +9,41 @@
             "email": "noon@gmail.com",
             "is_staff": true,
             "is_active": true,
-            "type": 0,
             "groups": [],
             "user_permissions": []
         }
     },
     {
+        "model": "api.userDetail",
+        "pk": 0,
+        "fields": {
+            "user_id": 0,
+            "type": 3
+        }
+    },
+
+
+    {
         "model": "api.user",
         "pk": 1,
         "fields": {
             "password": "pbkdf2_sha256$100000$Cs3Cj61Ex7g0$lc00dxUfzr99rUhI0RXT5vaoDa9FFs9AZVt3unjYRqY=",
-            "email": "aaa@gmail.com",
-            "type": 1
+            "email": "aaa@gmail.com"
         }
     },
     {
-        "model": "api.buyerDetail",
+        "model": "api.userDetail",
         "pk": 1,
         "fields": {
+            "type": 1,
             "user_id": 1,
-            "ready_to_buy": true,
-            "name": "patron1",
+            "ready_as_buyer": true,
+            "icon": "",
+            "last_name": "Mr.",
+            "first_name": "patron1",
+            "zipcode": "888-1111",
             "address": "東京都杉並区どこそこ１−２ー３",
-            "phone_number": "08012345678",
-            "credit_number": "1111222233334444",
-            "credit_name": "YAMADA YAMADA"
+            "phone_number": "08012345678"
         }
     },
 
@@ -42,21 +52,22 @@
         "pk": 2,
         "fields": {
             "password": "pbkdf2_sha256$100000$Cs3Cj61Ex7g0$lc00dxUfzr99rUhI0RXT5vaoDa9FFs9AZVt3unjYRqY=",
-            "email": "bbb@gmail.com",
-            "type": 1
+            "email": "bbb@gmail.com"
         }
     },
     {
-        "model": "api.buyerDetail",
+        "model": "api.userDetail",
         "pk": 2,
         "fields": {
+            "type": 1,
             "user_id": 2,
-            "ready_to_buy": false,
-            "name": "patron2",
-            "address": "",
-            "phone_number": "08012345678",
-            "credit_number": "1111222233334444",
-            "credit_name": ""
+            "ready_as_buyer": false,
+            "icon": "",
+            "last_name": "Ms.",
+            "first_name": "patron2",
+            "zipcode": "888-2222",
+            "address": "東京都杉並区どこそこ１−２ー３",
+            "phone_number": "08012345678"
         }
     },
 
@@ -65,21 +76,22 @@
         "pk": 3,
         "fields": {
             "password": "pbkdf2_sha256$100000$Cs3Cj61Ex7g0$lc00dxUfzr99rUhI0RXT5vaoDa9FFs9AZVt3unjYRqY=",
-            "email": "ccc@gmail.com",
-            "type": 1
+            "email": "ccc@gmail.com"
         }
     },
     {
-        "model": "api.buyerDetail",
+        "model": "api.userDetail",
         "pk": 3,
         "fields": {
+            "type": 1,
             "user_id": 3,
-            "ready_to_buy": true,
-            "name": "patron3",
+            "ready_as_buyer": true,
+            "icon": "",
+            "last_name": "Mr.",
+            "first_name": "patron3",
+            "zipcode": "888-3333",
             "address": "東京都杉並区どこそこ１−２ー３",
-            "phone_number": "08012345678",
-            "credit_number": "1111222233334444",
-            "credit_name": "YAMADA YAMADA"
+            "phone_number": "08012345678"
         }
     },
 
@@ -92,51 +104,33 @@
         }
     },
     {
-        "model": "api.artistDetail",
-        "pk": 1,
+        "model": "api.userDetail",
+        "pk": 4,
         "fields": {
             "user_id": 4,
+            "type": 2,
+            "icon": "http://bijo.gen-zo.com/sample/images/binan/light01_after.jpg",
+            "ready_as_artist": true,
             "debuted": true,
-            "ready_to_sell": true,
             "approved": 0,
             "ticket": 0,
             "artist_name": "ddd",
+            "profile": "アーティストです。",
             "website": "sample.com",
-            "birthday": "1990-12-07",
             "sex": 1,
             "place": "東京",
-            "genre": 2,
-            "profile": "アーティストです。",
-            "icon": "http://bijo.gen-zo.com/sample/images/binan/light01_after.jpg",
-            "account": "新生銀行",
-            "account_branch": "400",
-            "account_name": "ヤマダタロウ",
-            "account_number": "898411"
-        }
-    },
-    {
-        "model": "api.artistDetail",
-        "pk": 2,
-        "fields": {
-            "user_id": 5,
-            "debuted": true,
-            "ready_to_sell": true,
-            "approved": 0,
-            "ticket": 0,
-            "artist_name": "eee",
-            "website": "sample.com",
             "birthday": "1990-12-07",
-            "sex": 1,
-            "place": "東京",
-            "genre": 2,
-            "profile": "アーティストです。",
-            "icon": "http://bijo.gen-zo.com/sample/images/binan/light01_after.jpg",
-            "account": "新生銀行",
-            "account_branch": "400",
-            "account_name": "ヤマダタロウ2",
-            "account_number": "898411"
+
+
+            "bank_name": "新生銀行",
+            "bank_branch": "本店",
+            "bank_branch_code": "400",
+            "bank_number": "898411",
+            "bank_account_name": "ヤマダタロウ"
         }
     },
+
+
 
     {
         "model": "api.user",
@@ -147,6 +141,34 @@
         }
     },
     {
+        "model": "api.userDetail",
+        "pk": 5,
+        "fields": {
+            "user_id": 5,
+            "type": 2,
+            "icon": "http://bijo.gen-zo.com/sample/images/binan/light01_after.jpg",
+            "ready_as_artist": true,
+            "debuted": false,
+            "approved": 0,
+            "ticket": 0,
+            "artist_name": "eee",
+            "profile": "アーティストです。",
+            "website": "sample.com",
+            "sex": 1,
+            "place": "東京",
+            "birthday": "1990-12-07",
+
+
+            "bank_name": "新生銀行",
+            "bank_branch": "本店",
+            "bank_branch_code": "400",
+            "bank_number": "898411",
+            "bank_account_name": "ヤマダタロウ"
+        }
+    },
+
+
+    {
         "model": "api.user",
         "pk": 6,
         "fields": {
@@ -154,6 +176,33 @@
             "email": "fff@gmail.com"
         }
     },
+    {
+        "model": "api.userDetail",
+        "pk": 6,
+        "fields": {
+            "user_id": 6,
+            "type": 2,
+            "icon": "http://bijo.gen-zo.com/sample/images/binan/light01_after.jpg",
+            "ready_as_artist": true,
+            "debuted": false,
+            "approved": 0,
+            "ticket": 0,
+            "artist_name": "fff",
+            "profile": "アーティストです。",
+            "website": "sample.com",
+            "sex": 1,
+            "place": "東京",
+            "birthday": "1990-12-07",
+
+
+            "bank_name": "新生銀行",
+            "bank_branch": "本店",
+            "bank_branch_code": "400",
+            "bank_number": "898411",
+            "bank_account_name": "ヤマダタロウ"
+        }
+    },
+
 
 
     {
@@ -289,21 +338,21 @@
         "model": "api.sex",
         "pk": 0,
         "fields": {
-            "sex": "男"
+            "sex": "None"
         }
     },
     {
         "model": "api.sex",
         "pk": 1,
         "fields": {
-            "sex": "女"
+            "sex": "男"
         }
     },
     {
         "model": "api.sex",
         "pk": 2,
         "fields": {
-            "sex": "その他"
+            "sex": "女"
         }
     },
 

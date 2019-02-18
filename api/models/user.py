@@ -42,20 +42,10 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    """
-    Original User Model
-    type:
-    0 = default
-    1 = buyer
-    2 = artist
-    3 = both
-    """
-
     id = models.AutoField(primary_key=True, editable=False)
     email = models.EmailField('email', unique=True)
     is_staff = models.BooleanField('is_staff', default=False)
     is_active = models.BooleanField('is_active', default=True)
-    type = models.IntegerField(default=0)
 
     objects = UserManager()
 
@@ -68,43 +58,90 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = 'users'
 
 
-class BuyerDetail(models.Model):
+class UserDetail(models.Model):
+    """
+    type:
+        0 =  default
+        1 = buyer
+        2 = artist
+        3 = both
+    """
+
+    """ common """
     user_id = models.ForeignKey(User, on_delete=models.PROTECT)
-    ready_to_buy = models.BooleanField(default=False)
-    name = models.CharField(max_length=40)
-    address = models.CharField(max_length=200)
-    phone_number = models.CharField(max_length=20)
-    credit_number = models.CharField(max_length=20)
-    credit_name = models.CharField(max_length=50)
+    type = models.IntegerField(default=0, blank=True)
+    icon = models.FileField(null=True, blank=True, upload_to='icons/')
     created_at = models.DateTimeField(default=now)
     updated_at = models.DateTimeField(default=now)
     deleted_at = models.DateTimeField(null=True, blank=True, default=None)
 
-    def __str__(self):
-        return self.name
+    """ BUYER INFORMATION """
+    ready_as_buyer = models.BooleanField(default=False)
+    last_name = models.CharField(default='', blank=True, max_length=30)
+    first_name = models.CharField(default='', blank=True, max_length=30)
+    zipcode = models.CharField(default='', blank=True, max_length=10)
+    address = models.CharField(default='', blank=True, max_length=200)
+    phone_number = models.CharField(default='', blank=True, max_length=20)
 
-
-class ArtistDetail(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.PROTECT)
-    debuted = models.BooleanField(default=False)
-    approved = models.IntegerField(default=0)
-    ticket = models.IntegerField(default=0)
-    ready_to_sell = models.BooleanField(default=False)
-    artist_name = models.CharField(max_length=20)
-    website = models.CharField(max_length=100)
-    sex = models.ForeignKey(Sex, null=True, on_delete=models.PROTECT)
-    genre = models.ForeignKey(Genre, null=True, on_delete=models.PROTECT)
+    """ ARTIST INFORMATION """
+    ready_as_artist = models.BooleanField(default=False, blank=True)
+    debuted = models.BooleanField(default=False, blank=True)
+    approved = models.IntegerField(default=0, blank=True)
+    ticket = models.IntegerField(default=0, blank=True)
+    artist_name = models.CharField(default='', blank=True, max_length=30)
+    profile = models.TextField(default='', blank=True)
+    website = models.CharField(default='', blank=True, max_length=200)
+    sex = models.ForeignKey(Sex, default=0, blank=True, on_delete=models.PROTECT)
+    place = models.CharField(default='', blank=True, max_length=20)
     birthday = models.DateField(null=True, blank=True)
-    place = models.CharField(max_length=20)
-    profile = models.TextField()
-    icon = models.CharField(max_length=200, null=True, blank=True)
-    account = models.CharField(max_length=10)
-    account_branch = models.CharField(max_length=10)
-    account_name = models.CharField(max_length=30)
-    account_number = models.CharField(max_length=10)
-    created_at = models.DateTimeField(default=now)
-    updated_at = models.DateTimeField(default=now)
-    deleted_at = models.DateTimeField(null=True, blank=True, default=None)
+
+    bank_name = models.CharField(default='', blank=True, max_length=20)
+    bank_branch = models.CharField(default='', blank=True, max_length=20)
+    bank_branch_code = models.CharField(default='', blank=True, max_length=20)
+    bank_number = models.CharField(default='', blank=True, max_length=20)
+    bank_account_name = models.CharField(default='', blank=True, max_length=20)
 
     def __str__(self):
-        return self.artist_name
+        return self.user_id
+#
+#
+# class BuyerDetail(models.Model):
+#     user_id = models.ForeignKey(User, on_delete=models.PROTECT)
+#     ready_to_buy = models.BooleanField(default=False)
+#     name = models.CharField(max_length=40)
+#     address = models.CharField(max_length=200)
+#     phone_number = models.CharField(max_length=20)
+#     credit_number = models.CharField(max_length=20)
+#     credit_name = models.CharField(max_length=50)
+#     created_at = models.DateTimeField(default=now)
+#     updated_at = models.DateTimeField(default=now)
+#     deleted_at = models.DateTimeField(null=True, blank=True, default=None)
+#
+#     def __str__(self):
+#         return self.name
+#
+#
+# class ArtistDetail(models.Model):
+#     user_id = models.ForeignKey(User, on_delete=models.PROTECT)
+#     debuted = models.BooleanField(default=False)
+#     approved = models.IntegerField(default=0)
+#     ticket = models.IntegerField(default=0)
+#     ready_to_sell = models.BooleanField(default=False)
+#     artist_name = models.CharField(max_length=20)
+#     website = models.CharField(max_length=100)
+#     sex = models.ForeignKey(Sex, null=True, on_delete=models.PROTECT)
+#     genre = models.ForeignKey(Genre, null=True, on_delete=models.PROTECT)
+#     birthday = models.DateField(null=True, blank=True)
+#     place = models.CharField(max_length=20)
+#     profile = models.TextField()
+#     icon = models.CharField(max_length=200, null=True, blank=True)
+#     account = models.CharField(max_length=10)
+#     account_branch = models.CharField(max_length=10)
+#     account_name = models.CharField(max_length=30)
+#     account_number = models.CharField(max_length=10)
+#     created_at = models.DateTimeField(default=now)
+#     updated_at = models.DateTimeField(default=now)
+#     deleted_at = models.DateTimeField(null=True, blank=True, default=None)
+#
+#     def __str__(self):
+#         return self.artist_name

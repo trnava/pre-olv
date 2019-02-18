@@ -2,7 +2,7 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 
-from api.models.user import (User, ArtistDetail, BuyerDetail)
+from api.models.user import (User, UserDetail)
 
 
 class CustomAuthToken(ObtainAuthToken):
@@ -18,14 +18,13 @@ class CustomAuthToken(ObtainAuthToken):
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data['user']
 
-        artist = ArtistDetail.objects.filter(user_id=user.pk).exists()
-        buyer = BuyerDetail.objects.filter(user_id=user.pk).exists()
+        user_data = UserDetail.objects.get(user_id=user.pk)
 
         token, created = Token.objects.get_or_create(user=user)
         return Response({
             'token': token.key,
             'user_id': user.pk,
             'email': user.email,
-            'artist': artist,
-            'buyer': buyer
+            'artist': user_data.ready_as_artist,
+            'buyer': user_data.ready_as_buyer
         })

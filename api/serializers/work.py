@@ -6,7 +6,7 @@ from api.models.size import Size
 from api.models.color import Color
 from api.models.image import Image
 from api.models.genre import Genre, SubGenre
-from api.models.user import ArtistDetail, BuyerDetail
+from api.models.user import UserDetail
 from api.serializers.user import ArtistSerializer, BuyerSerializer
 from api.serializers.size import SizeSerializer
 from api.serializers.color import ColorSerializer
@@ -63,7 +63,7 @@ class WorkSerializer(serializers.ModelSerializer):
         if obj.buyer is None:
             return {}
 
-        return BuyerSerializer(BuyerDetail.objects.get(user_id=obj.buyer)).data
+        return BuyerSerializer(UserDetail.objects.get(user_id=obj.buyer)).data
 
     def get_artist(self, obj):
-        return ArtistSerializer(ArtistDetail.objects.get(user_id=obj.artist)).data
+        return ArtistSerializer(UserDetail.objects.get(user_id=obj.artist)).data

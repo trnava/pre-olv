@@ -5,18 +5,18 @@ start:
 migrate:
 	docker-compose run --rm api python manage.py makemigrations\
 	&& docker-compose run --rm api python manage.py migrate \
-	&& docker container stop nu-db
+	&& docker container stop olive-db
 
 
 superuser:
 	docker-compose run --rm api python manage.py createsuperuser \
-	&& docker container stop nu-db
+	&& docker container stop olive-db
 
 
 seed:
 	docker-compose run --rm api python manage.py flush \
 	&& docker-compose run --rm api python manage.py loaddata seed \
-	&& docker container stop nu-db
+	&& docker container stop olive-db
 
 
 connectdb:
@@ -27,4 +27,4 @@ update:
 	docker-compose run --rm api python manage.py makemigrations\
 	&& docker-compose run --rm api python manage.py migrate \
 	&& docker-compose run --rm api python manage.py loaddata seed \
-	&& docker container stop nu-db
+	&& docker container stop olive-db

@@ -2,8 +2,8 @@ from django.shortcuts import get_object_or_404
 from rest_framework import viewsets
 from rest_framework.response import Response
 
-from api.models import (User, ArtistDetail)
-from api.serializers import (UserSerializer, UserDetailSerializer, ArtistInfoSerializer)
+from api.models import (User, UserDetail)
+from api.serializers import (UserSerializer, UserDetailSerializer, ArtistSerializer)
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -31,10 +31,10 @@ class UserViewSet(viewsets.ModelViewSet):
 
 class ArtistViewSet(viewsets.ModelViewSet):
     """ アーティスト """
-    queryset = ArtistDetail.objects.all()
-    serializer_class = ArtistInfoSerializer
+    queryset = UserDetail.objects.filter(type=2)
+    serializer_class = ArtistSerializer
 
     def retrieve(self, request, pk=None):
-        artist = get_object_or_404(ArtistDetail.objects.all(), user_id=pk)
+        artist = get_object_or_404(UserDetail.objects.filter(type=2), user_id=pk)
 
-        return Response(ArtistInfoSerializer(artist).data)
+        return Response(ArtistSerializer(artist).data)
