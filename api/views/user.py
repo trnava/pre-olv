@@ -38,3 +38,13 @@ class ArtistViewSet(viewsets.ModelViewSet):
         artist = get_object_or_404(UserDetail.objects.filter(type=2), user_id=pk)
 
         return Response(ArtistSerializer(artist).data)
+
+
+class UserDetailViewSet(viewsets.ModelViewSet):
+    """ ユーザー詳細 """
+    queryset = UserDetail.objects.all()
+    serializer_class = UserDetailSerializer
+
+    def retrieve(self, request, pk=None):
+        detail = get_object_or_404(UserDetail.objects, user_id=pk)
+        return Response(UserDetailSerializer(detail).data)

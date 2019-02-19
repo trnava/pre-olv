@@ -46,5 +46,5 @@ class ArtistSerializer(serializers.ModelSerializer):
 
 class UserDetailSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
+        model = UserDetail
         fields = '__all__'

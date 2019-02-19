@@ -16,7 +16,7 @@ class WorkViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         artist_id = self.request.query_params.get('artist')
         if artist_id:
-            works = Work.objects.filter(artist_id=artist_id).all()
+            works = Work.objects.filter(artist=artist_id).all()
             return works
 
         return Work.objects.all()
