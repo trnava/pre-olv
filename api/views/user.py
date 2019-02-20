@@ -9,7 +9,7 @@ from api.serializers import (UserSerializer, UserDetailSerializer, ArtistSeriali
 class UserViewSet(viewsets.ModelViewSet):
     """ ユーザー """
     queryset = User.objects.all()
-    serializer_class = UserDetailSerializer
+    serializer_class = UserSerializer
     # permission_classes = (AllowAny,)
 
     def create(self, request, *args, **kwargs):
@@ -20,8 +20,10 @@ class UserViewSet(viewsets.ModelViewSet):
             user = User.objects.create_user(email=data['email'], password=data['password'])
             user.save()
 
-            serialized_data = UserSerializer(user).data
-            return Response(serialized_data)
+            user_detail = UserDetail.objects.create(user_id=user)
+            user_detail.save()
+
+            return Response(UserSerializer(user).data)
 
         return Response({'message': '既に存在するユーザーです'}, status=404)
 
@@ -47,4 +49,11 @@ class UserDetailViewSet(viewsets.ModelViewSet):
 
     def retrieve(self, request, pk=None):
         detail = get_object_or_404(UserDetail.objects, user_id=pk)
+        return Response(UserDetailSerializer(detail).data)
+
+    def partial_update(self, request, pk=None):
+        detail = UserDetail.objects.get(user_id=pk)
+        detail.icon = request.data.get('icon')
+        detail.save()
+
         return Response(UserDetailSerializer(detail).data)
