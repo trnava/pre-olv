@@ -8,6 +8,7 @@ from api.views.sex import *
 from api.views.work import *
 from api.views.image import *
 from api.views.message import *
+from api.views.favorite import *
 
 
 def index(request):

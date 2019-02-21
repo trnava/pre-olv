@@ -18,7 +18,8 @@ from api.views import (
     SexViewSet,
     WorkViewSet,
     ImageViewSet,
-    MessageViewSet
+    MessageViewSet,
+    FavoriteViewSet
 )
 
 router = routers.DefaultRouter()
@@ -33,6 +34,7 @@ router.register(r'sexs', SexViewSet, base_name='sex')
 router.register(r'works', WorkViewSet, base_name='work')
 router.register(r'images', ImageViewSet, base_name='image')
 router.register(r'messages', MessageViewSet, base_name='message')
+router.register(r'favorites', FavoriteViewSet, base_name='favorite')
 
 urlpatterns = [
     path('', include('api.urls')),
