@@ -15,3 +15,5 @@ django-extensions
 coreapi
 
 django-cors-headers
+
+pillow

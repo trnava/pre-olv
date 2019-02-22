@@ -70,7 +70,7 @@ class UserDetail(models.Model):
     """ common """
     user_id = models.ForeignKey(User, on_delete=models.PROTECT)
     type = models.IntegerField(default=0, blank=True)
-    icon = models.FileField(default='icons/default.jpg', blank=True, upload_to='icons/')
+    icon = models.ImageField(default='icons/default.jpg', blank=True, upload_to='icons/')
     created_at = models.DateTimeField(default=now)
     updated_at = models.DateTimeField(default=now)
     deleted_at = models.DateTimeField(null=True, blank=True, default=None)
