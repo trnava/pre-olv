@@ -52,6 +52,9 @@ INSTALLED_APPS = [
 
     'django_filters',
     'django_extensions',
+
+    # ========== S3 setting ==========
+    # 'storages'
 ]
 
 MIDDLEWARE = [
@@ -163,3 +166,17 @@ MEDIA_URL = '/media/'
 #        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
 #     )
 # }
+
+
+# =============================================================================
+# =============================================================================
+# =============================== S3 storage ==================================
+
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+# AWS_ACCESS_KEY_ID = 'AKIAIJB3XXILIQAD4BNA'
+# AWS_SECRET_ACCESS_KEY = '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'
+# AWS_STORAGE_BUCKET_NAME = 'olive-s3'
+#
+# STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+# STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+# ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'

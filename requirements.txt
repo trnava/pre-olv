@@ -17,3 +17,9 @@ coreapi
 django-cors-headers
 
 pillow
+
+django-storages
+
+boto
+
+boto3
