@@ -7,6 +7,7 @@ from api.models.color import Color
 from api.models.image import Image
 from api.models.genre import Genre, SubGenre
 from api.models.user import UserDetail
+from api.models.favorite import Favorite
 from api.serializers.user import ArtistSerializer, BuyerSerializer
 from api.serializers.size import SizeSerializer
 from api.serializers.color import ColorSerializer
@@ -22,6 +23,7 @@ class WorkSerializer(serializers.ModelSerializer):
     buyer = SerializerMethodField()
     artist = SerializerMethodField()
     images = SerializerMethodField()
+    favorite_users = SerializerMethodField()
 
     class Meta:
         model = Work
@@ -41,7 +43,8 @@ class WorkSerializer(serializers.ModelSerializer):
             'genre',
             'subgenre',
             'buyer',
-            'artist'
+            'artist',
+            'favorite_users'
         )
 
     def get_size(self, obj):
@@ -67,3 +70,12 @@ class WorkSerializer(serializers.ModelSerializer):
 
     def get_artist(self, obj):
         return ArtistSerializer(UserDetail.objects.get(user_id=obj.artist)).data
+
+    def get_favorite_users(self, obj):
+        user_ids = []
+        data = Favorite.objects.filter(work=obj.pk).all()
+
+        for i in data:
+            user_ids.append(i.user_id)
+
+        return user_ids
