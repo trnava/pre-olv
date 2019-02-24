@@ -15,7 +15,8 @@ class FavoriteViewSet(viewsets.ModelViewSet):
 
         favorite = Favorite.objects.filter(work=data['work'], user=data['user']).first()
         if favorite:
-            return Response({'message': 'already favorited'}, status=404)
+            favorite.delete()
+            return Response(status=200)
 
         favorite = Favorite.objects.create(work_id=data['work'], user_id=data['user'])
         favorite.save()
