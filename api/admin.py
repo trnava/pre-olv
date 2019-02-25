@@ -8,7 +8,6 @@ from api.models.color import Color
 from api.models.size import Size
 from api.models.sex import Sex
 from api.models.work import Work
-from api.models.image import Image
 from api.models.message import Message
 
 
@@ -18,7 +17,6 @@ admin.site.register(Color)
 admin.site.register(Size)
 admin.site.register(Sex)
 admin.site.register(Work)
-admin.site.register(Image)
 admin.site.register(Message)
 admin.site.register(UserDetail)
 

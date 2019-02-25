@@ -28,16 +28,29 @@ class WorkViewSet(viewsets.ModelViewSet):
             artist_id=data['artist'],
             name=data['name'],
             caption=data['caption'],
+            image1=(data['image1'] == 'null') if None else data['image1'],
             price=data['price'],
             size_id=data['size'],
             color_id=data['color'],
             genre_id=data['genre'],
             subgenre_id=data['subgenre']
         )
+
+        if data['image2'] != 'null':
+            work.image2 = data['image2']
+
+        if data['image3'] != 'null':
+            work.image3 = data['image3']
+
+        if data['image4'] != 'null':
+            work.image4 = data['image4']
+
+        if data['image5'] != 'null':
+            work.image5 = data['image5']
+
         work.save()
 
         return Response(WorkSerializer(work).data)
-
 
     def retrieve(self, request, pk=None):
         work = get_object_or_404(Work.objects.all(), pk=pk)

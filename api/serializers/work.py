@@ -4,7 +4,6 @@ from rest_framework.serializers import SerializerMethodField
 from api.models.work import Work
 from api.models.size import Size
 from api.models.color import Color
-from api.models.image import Image
 from api.models.genre import Genre, SubGenre
 from api.models.user import UserDetail
 from api.models.favorite import Favorite
@@ -12,7 +11,6 @@ from api.serializers.user import ArtistSerializer, BuyerSerializer
 from api.serializers.size import SizeSerializer
 from api.serializers.color import ColorSerializer
 from api.serializers.genre import GenreSerializer, SubGenreSerializer
-from api.serializers.image import ImageSerializer
 
 
 class WorkSerializer(serializers.ModelSerializer):
@@ -22,7 +20,6 @@ class WorkSerializer(serializers.ModelSerializer):
     subgenre = SerializerMethodField()
     buyer = SerializerMethodField()
     artist = SerializerMethodField()
-    images = SerializerMethodField()
     favorite_users = SerializerMethodField()
 
     class Meta:
@@ -33,7 +30,11 @@ class WorkSerializer(serializers.ModelSerializer):
             'status',
             'name',
             'caption',
-            'images',
+            'image1',
+            'image2',
+            'image3',
+            'image4',
+            'image5',
             'price',
             'sold',
             'created_at',
@@ -52,9 +53,6 @@ class WorkSerializer(serializers.ModelSerializer):
 
     def get_color(self, obj):
         return ColorSerializer(Color.objects.get(pk=obj.color.pk)).data
-
-    def get_images(self, obj):
-        return ImageSerializer(Image.objects.filter(work=obj).all().order_by('order'), many=True).data
 
     def get_genre(self, obj):
         return GenreSerializer(Genre.objects.get(pk=obj.genre.pk)).data

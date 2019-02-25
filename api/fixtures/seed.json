@@ -360,6 +360,7 @@
         "fields": {
             "name": "Work1",
             "caption": "test work 1. this is test work 1",
+            "image1": "workImages/work1.jpg",
             "price": 20000,
             "size": 1,
             "color": 2,
@@ -368,42 +369,7 @@
             "artist": 4
         }
     },
-    {
-        "model": "api.image",
-        "pk": 1,
-        "fields": {
-            "work": 1,
-            "order": 1,
-            "url": "https://www.therovingschool.com.au/wp-content/uploads/2018/10/abstract-art-artistic-935785.jpg"
-        }
-    },
-    {
-        "model": "api.image",
-        "pk": 2,
-        "fields": {
-            "work": 1,
-            "order": 2,
-            "url": "https://via.placeholder.com/468x300?text=1"
-        }
-    },
-    {
-        "model": "api.image",
-        "pk": 3,
-        "fields": {
-            "work": 1,
-            "order": 3,
-            "url": "https://via.placeholder.com/468x300?text=2"
-        }
-    },
-    {
-        "model": "api.image",
-        "pk": 4,
-        "fields": {
-            "work": 1,
-            "order": 4,
-            "url": "https://via.placeholder.com/468x300?text=3"
-        }
-    },
+
 
 
     {
@@ -412,48 +378,13 @@
         "fields": {
             "name": "Work2",
             "caption": "test work 2. this is test work 2",
+            "image1": "workImages/work2.jpg",
             "price": 560000,
             "size": 0,
             "color": 1,
             "genre": 0,
             "subgenre": 3,
             "artist": 5
-        }
-    },
-    {
-        "model": "api.image",
-        "pk": 11,
-        "fields": {
-            "work": 2,
-            "order": 1,
-            "url": "https://www.telegraph.co.uk/content/dam/luxury/2018/10/23/Lot-33-Papa-Ibra-Tall-The-Warrior-2_trans_NvBQzQNjv4BqodNcBcGl77MFNsXA9PO2XJYCQ1SCH6wXj7qdqY9PoCo.jpg?imwidth=450"
-        }
-    },
-    {
-        "model": "api.image",
-        "pk": 12,
-        "fields": {
-            "work": 2,
-            "order": 2,
-            "url": "https://via.placeholder.com/468x300?text=1"
-        }
-    },
-    {
-        "model": "api.image",
-        "pk": 13,
-        "fields": {
-            "work": 2,
-            "order": 3,
-            "url": "https://via.placeholder.com/468x300?text=2"
-        }
-    },
-    {
-        "model": "api.image",
-        "pk": 14,
-        "fields": {
-            "work": 2,
-            "order": 4,
-            "url": "https://via.placeholder.com/468x300?text=3"
         }
     },
 
@@ -464,6 +395,7 @@
         "fields": {
             "name": "Work3",
             "caption": "test work 3. this is test work 3",
+            "image1": "workImages/work3.jpg",
             "price": 57000,
             "size": 2,
             "color": 0,
@@ -472,42 +404,7 @@
             "artist": 4
         }
     },
-    {
-        "model": "api.image",
-        "pk": 21,
-        "fields": {
-            "work": 3,
-            "order": 1,
-            "url": "https://www.moma.org/d/assets/W1siZiIsIjIwMTUvMTAvMjEvaWJ3dmJmanIyX3N0YXJyeW5pZ2h0LmpwZyJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDIwMDB4MjAwMFx1MDAzZSJdXQ/starrynight.jpg?sha=161d3d1fb5eb4b23"
-        }
-    },
-    {
-        "model": "api.image",
-        "pk": 22,
-        "fields": {
-            "work": 3,
-            "order": 2,
-            "url": "https://via.placeholder.com/468x300?text=1"
-        }
-    },
-    {
-        "model": "api.image",
-        "pk": 23,
-        "fields": {
-            "work": 3,
-            "order": 3,
-            "url": "https://via.placeholder.com/468x300?text=2"
-        }
-    },
-    {
-        "model": "api.image",
-        "pk": 24,
-        "fields": {
-            "work": 3,
-            "order": 4,
-            "url": "https://via.placeholder.com/468x300?text=3"
-        }
-    },
+
 
 
     {
