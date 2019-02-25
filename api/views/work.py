@@ -21,6 +21,24 @@ class WorkViewSet(viewsets.ModelViewSet):
 
         return Work.objects.all()
 
+    def create(self, request, *args, **kwargs):
+        data = request.data
+
+        work = Work.objects.create(
+            artist_id=data['artist'],
+            name=data['name'],
+            caption=data['caption'],
+            price=data['price'],
+            size_id=data['size'],
+            color_id=data['color'],
+            genre_id=data['genre'],
+            subgenre_id=data['subgenre']
+        )
+        work.save()
+
+        return Response(WorkSerializer(work).data)
+
+
     def retrieve(self, request, pk=None):
         work = get_object_or_404(Work.objects.all(), pk=pk)
 

@@ -10,7 +10,7 @@ from api.models.user import User
 class Work(models.Model):
     view = models.IntegerField(default=0)
     status = models.IntegerField(default=0)
-    name = models.CharField(max_length=30,null=False, blank=False)
+    name = models.CharField(null=False, blank=False, max_length=100,)
     caption = models.TextField(null=False, blank=False)
     size = models.ForeignKey(Size, on_delete=models.PROTECT)
     color = models.ForeignKey(Color, on_delete=models.PROTECT)
@@ -19,10 +19,10 @@ class Work(models.Model):
     price = models.IntegerField(default=0, null=False, blank=False)
     sold = models.BooleanField(default=False)
     buyer = models.ForeignKey(User, related_name='buyer', null=True, blank=True, on_delete=models.PROTECT)
-    artist = models.ForeignKey(User, related_name='artist', null=True, blank=False, on_delete=models.PROTECT)
+    artist = models.ForeignKey(User, related_name='artist', null=False, default=0, blank=False, on_delete=models.PROTECT)
     created_at = models.DateTimeField(default=now)
     updated_at = models.DateTimeField(default=now)
-    deleted_at = models.DateTimeField(null=True, blank=True, default=None)
+    deleted_at = models.DateTimeField(default=None, null=True, blank=True)
 
     def __str__(self):
         return self.name

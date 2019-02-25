@@ -6,4 +6,4 @@ from api.models.work import Work
 class Image(models.Model):
     work = models.ForeignKey(Work, on_delete=models.PROTECT)
     order = models.IntegerField()
-    url = models.CharField(max_length=200)
+    url = models.ImageField(null=False, blank=True, upload_to='workImages/')
