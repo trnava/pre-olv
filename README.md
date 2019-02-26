@@ -22,13 +22,19 @@ This is the Api server for olive project
     - django-filter
     - pygraphviz
     - django-extensions
+    - coreapi
+    - django-cors-headers
+    - pillow
+    - django-storages
+    - boto
+    - boto3
 
 <br />
 
 ## Setup 
 #### 1/4 - Clone and migrate
 ```terminal
-git clone https://github.com/creative-mintzplanning/nu-api.git
+git clone 
 
 cd olive-api/
 
@@ -42,9 +48,9 @@ make start
 
 #### 2/4 - Initialize data for DB
 ```terminal
-make pre-migrate
+make migrate
 
-make update
+make seed
 ```
 localのsuperuserは好きに設定してください。  
 seedにデータを追加したいときは => ./fixtures/seed.json に追加してください。
@@ -65,7 +71,7 @@ make start
 
 まずはトップページに繋がるか確認しましょう。
 ```terminal
-curl http://localhost:8008/api/
+curl http://localhost:8008/api/v1/
 ```
 実際にデータが取得できればひとまずOKだと思います。  
 
