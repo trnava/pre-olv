@@ -90,6 +90,10 @@ djangoはあくまでdocker-composeの中の、
 
 <br>
 
+## Super User
+EMAIL: noon@gmail.com  
+PASS: n00nincpass
+
 ## Makefile Commands
 新たにmigrateしたい時　↓
 ```

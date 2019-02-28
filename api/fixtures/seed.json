@@ -3,7 +3,7 @@
         "model": "api.user",
         "pk": 0,
         "fields": {
-            "password": "pbkdf2_sha256$100000$G8Khv6sC1pSn$oVV6Ktk5k3vcxtrzxm/THh9cTjeCjyYxVyW2BZ+cBVM=",
+            "password": "pbkdf2_sha256$100000$idunipKnlSKr$szI9/sbNEtGEM1798VyQipnNzWn6lL824/b8yCVkjBM=",
             "last_login": null,
             "is_superuser": true,
             "email": "noon@gmail.com",
