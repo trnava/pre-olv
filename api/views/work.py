@@ -5,6 +5,7 @@ from rest_framework.authentication import TokenAuthentication
 
 from api.models.user import User
 from api.models.work import Work
+from api.models.favorite import Favorite
 from api.serializers.work import WorkSerializer
 
 
@@ -17,6 +18,15 @@ class WorkViewSet(viewsets.ModelViewSet):
         artist_id = self.request.query_params.get('artist')
         if artist_id:
             works = Work.objects.filter(artist=artist_id).all()
+            return works
+
+        user_id = self.request.query_params.get('favoritesOf')
+        if user_id:
+            works = []
+            favorite_data = Favorite.objects.filter(user=user_id).all()
+            for x in favorite_data:
+                works.append(x.work)
+
             return works
 
         return Work.objects.all()
