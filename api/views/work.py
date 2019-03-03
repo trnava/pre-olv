@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.authentication import TokenAuthentication
+from PIL import Image
 
 from api.models.user import User
 from api.models.work import Work
@@ -10,7 +11,6 @@ from api.serializers.work import WorkSerializer
 
 
 class WorkViewSet(viewsets.ModelViewSet):
-    # queryset = Work.objects.all()
     serializer_class = WorkSerializer
     authentication_classes = (TokenAuthentication,)
 
@@ -60,6 +60,30 @@ class WorkViewSet(viewsets.ModelViewSet):
 
         work.save()
 
+        image = Image.open(work.image1.path)
+        image = expand_to_square(image, (255, 255, 255))
+        image.save(work.image1.path, quality=100)
+
+        if work.image2:
+            image = Image.open(work.image2.path)
+            image = expand_to_square(image, (255, 255, 255))
+            image.save(work.image2.path, quality=100)
+
+        if work.image3:
+            image = Image.open(work.image3.path)
+            image = expand_to_square(image, (255, 255, 255))
+            image.save(work.image3.path, quality=100)
+
+        if work.image4:
+            image = Image.open(work.image4.path)
+            image = expand_to_square(image, (255, 255, 255))
+            image.save(work.image4.path, quality=100)
+
+        if work.image5:
+            image = Image.open(work.image5.path)
+            image = expand_to_square(image, (255, 255, 255))
+            image.save(work.image5.path, quality=100)
+
         return Response(WorkSerializer(work).data)
 
     def retrieve(self, request, pk=None):
@@ -81,3 +105,16 @@ class WorkViewSet(viewsets.ModelViewSet):
 
         return Response(WorkSerializer(work).data)
 
+
+def expand_to_square(pil_img, background_color):
+    width, height = pil_img.size
+    if width == height:
+        return pil_img
+    elif width > height:
+        result = Image.new(pil_img.mode, (width, width), background_color)
+        result.paste(pil_img, (0, (width - height) // 2))
+        return result
+    else:
+        result = Image.new(pil_img.mode, (height, height), background_color)
+        result.paste(pil_img, ((height - width) // 2, 0))
+        return result
